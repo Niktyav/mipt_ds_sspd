@@ -1,0 +1,109 @@
+Table Transactions {
+  id integer [primary key]
+  product_id integer
+  customer_id integer
+  transaction_date datetime 
+  online_order boolean
+  order_status_id integer
+}
+
+Table Products {
+  id integer [primary key]
+  brand_id integer
+  product_line_id integer
+  product_class_id integer
+  product_size_id integer
+  list_price float
+  standard_cost float
+}
+
+Table Customers {
+  id integer [primary key]
+  first_name text
+  last_name text
+  gender varchar
+  DOB varchar
+  job_title text
+  job_industry_category_id integer
+  wealth_segment_id integer
+  deceased_indicator bool
+  owns_car bool
+  property_valuation integer
+  address varchar
+  postcode integer
+  state_id integer
+  country_id integer
+}
+
+
+Table order_statuses{
+  id integer [primary key]
+  name text
+}
+
+Table job_industry_categories{
+  id integer [primary key]
+  name text
+}
+
+
+
+Table wealth_segments{
+  id integer [primary key]
+  name text
+}
+
+Table states{
+  id integer [primary key]
+  name text
+}
+
+Table countries{
+  id integer [primary key]
+  name text
+}
+
+
+Table brands{
+  id integer [primary key]
+  name text
+}
+Table product_lines{
+  id integer [primary key]
+  name text
+}
+Table product_classes{
+  id integer [primary key]
+  name text
+}
+Table product_sizes{
+  id integer [primary key]
+  name text
+}
+
+
+
+
+
+
+Ref: "order_statuses"."id" < "Transactions"."order_status_id"
+
+Ref: "wealth_segments"."id" < "Customers"."wealth_segment_id"
+
+Ref: "countries"."id" < "Customers"."country_id"
+
+Ref: "brands"."id" < "Products"."brand_id"
+
+Ref: "product_lines"."id" < "Products"."product_line_id"
+
+Ref: "product_sizes"."id" < "Products"."product_size_id"
+
+Ref: "product_classes"."id" < "Products"."product_class_id"
+
+Ref: "states"."id" < "Customers"."state_id"
+
+Ref: "Customers"."id" < "Transactions"."customer_id"
+
+Ref: "job_industry_categories"."id" < "Customers"."job_industry_category_id"
+
+Ref: "Products"."id" < "Transactions"."product_id"
