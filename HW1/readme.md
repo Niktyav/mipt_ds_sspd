@@ -53,10 +53,10 @@
     SQL скрипт создания и заполния базы данных [Vyatkin_Roman_hw1_scripts.sql](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/Vyatkin_Roman_hw1_scripts.sql)
     полноценное заполнение БД требует создания скрипта,  а обнаруженные аномалии с "product_id" фильтрации и кодирования/очистки данных
     Потому для примера приведено заполнение по несколько строк в каждой таблице. 
-    Заполнение БД в PostgeSQL:
+    Заполнение БД в PostgeSQL:  
     *[Диаграмма](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/diagramm.JPG)  
     *[Продукты](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/products.JPG)  
-    *[Клиенты](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/customers.JPG)
+    *[Клиенты](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/customers.JPG)  
     *[Транзакции](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/transactions.JPG)
 
 
