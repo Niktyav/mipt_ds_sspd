@@ -54,10 +54,10 @@
     полноценное заполнение БД требует создания скрипта,  а обнаруженные аномалии с "product_id" фильтрации и кодирования/очистки данных
     Потому для примера приведено заполнение по несколько строк в каждой таблице. 
     Заполнение БД в PostgeSQL:
-    [Диаграмма](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/diagramm.JPG)  
-    [Продукты](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/products.JPG)  
-    [Клиенты](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/customers.JPG)
-    [Транзакции](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/transactions.JPG)
+    *[Диаграмма](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/diagramm.JPG)  
+    *[Продукты](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/products.JPG)  
+    *[Клиенты](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/customers.JPG)
+    *[Транзакции](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/transactions.JPG)
 
 
 
