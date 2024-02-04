@@ -15,23 +15,22 @@
 # Решение
 
 Скрипт решения [Vyatkin_Roman_hw2.sql](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/Vyatkin_Roman_hw2.sql)  
-  
 * Вывести все уникальные бренды, у которых стандартная стоимость выше 1500 долларов.  
-<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/unique_brand.JPG'>  
+![plot]('https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/unique_brand.JPG'  
 * Вывести все подтвержденные транзакции за период '2017-04-01' по '2017-04-09' включительно.  
-<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/approved_betwen_date.JPG'>  
+![plot](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/approved_betwen_date.JPG)  
 * Вывести все профессии у клиентов из сферы IT или Financial Services, которые начинаются с фразы 'Senior'.  
-<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/seniors.JPG'>  
+![plot](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/seniors.JPG)   
 * Вывести все бренды, которые закупают клиенты, работающие в сфере Financial Services  
-<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/financial_brand.JPGG'>  
+![plot](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/financial_brand.JPG)  
 * Вывести 10 клиентов, которые оформили онлайн-заказ продукции из брендов 'Giant Bicycles', 'Norco Bicycles', 'Trek Bicycles'.  
-<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/ten_online.JPG'>
+![plot](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/ten_online.JPG)  
 * Вывести всех клиентов, у которых нет транзакций.  
-<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/without_transaction.JPG'>
+![plot](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/without_transaction.JPG)  
 * Вывести всех клиентов из IT, у которых транзакции с максимальной стандартной стоимостью.  
-<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/IT_max_cost_trans.JPG'>
+![plot](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/IT_max_cost_trans.JPG)  
 * Вывести всех клиентов из сферы IT и Health, у которых есть подтвержденные транзакции за период '2017-07-07' по '2017-07-17'.  
-<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/IT_health_with_transaction.JPG'>
+![plot](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/IT_health_with_transaction.JPG)  
 
 
 
