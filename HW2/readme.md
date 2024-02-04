@@ -16,7 +16,7 @@
 
 Скрипт решения [Vyatkin_Roman_hw2.sql](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/Vyatkin_Roman_hw2.sql)  
 * Вывести все уникальные бренды, у которых стандартная стоимость выше 1500 долларов.  
-![plot]('https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/unique_brand.JPG'  
+![plot]('https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/unique_brand.JPG?raw=true)  
 * Вывести все подтвержденные транзакции за период '2017-04-01' по '2017-04-09' включительно.  
 ![plot](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/approved_betwen_date.JPG)  
 * Вывести все профессии у клиентов из сферы IT или Financial Services, которые начинаются с фразы 'Senior'.  
