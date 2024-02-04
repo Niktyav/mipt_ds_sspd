@@ -14,56 +14,25 @@
 
 # Решение
 
-## Анализ таблиц
-1. представленный датасет уже находится в первой нормальной форме(значения всех колонок скалярны) 
-2. Приведем БД ко второй нормальной форме  
-    "каждый столбец, который не является ключом, зависит от первичного ключа."  
-    первым кандидатом на выделение является  
-       товар/продукт из "transaction"  
-        это колонки "brand"	"product_line"	"product_class"	"product_size" "product_id"  
-        и скорее всего "standard_cost" - очень похожа на базовую цену, относящуюся к самому товару(для полноценного приняти решения требукется интервью с пользователем)  
-        колонка "list_price" при более глубоком анализе пропорциональна "standard_cost" - потому относим их тоже  к товару.  
-        к тому же "list_price" не содержит пустых значений в отличии от "standard_cost"  
-        "product_id"  - не содержит корректного кода для кодирования продукта (скорее это код группы товаров с внутренней закономерностью- )   
-                        как пример для "product_id"=4 соответсвует 2 бренда "Giant Bicycles" и "Solex"   
-        потому данный парамер относим к продукту, но для связи вводим новый ключ  
+Скрипт решения [Vyatkin_Roman_hw2.sql](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/Vyatkin_Roman_hw2.sql)  
+  
+* Вывести все уникальные бренды, у которых стандартная стоимость выше 1500 долларов.  
+<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/unique_brand.JPG'>  
+* Вывести все подтвержденные транзакции за период '2017-04-01' по '2017-04-09' включительно.  
+<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/approved_betwen_date.JPG'>  
+* Вывести все профессии у клиентов из сферы IT или Financial Services, которые начинаются с фразы 'Senior'.  
+<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/seniors.JPG'>  
+* Вывести все бренды, которые закупают клиенты, работающие в сфере Financial Services  
+<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/financial_brand.JPGG'>  
+* Вывести 10 клиентов, которые оформили онлайн-заказ продукции из брендов 'Giant Bicycles', 'Norco Bicycles', 'Trek Bicycles'.  
+<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/ten_online.JPG'>
+* Вывести всех клиентов, у которых нет транзакций.  
+<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/without_transaction.JPG'>
+* Вывести всех клиентов из IT, у которых транзакции с максимальной стандартной стоимостью.  
+<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/IT_max_cost_trans.JPG'>
+* Вывести всех клиентов из сферы IT и Health, у которых есть подтвержденные транзакции за период '2017-07-07' по '2017-07-17'.  
+<img src='https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW2/IT_health_with_transaction.JPG'>
 
-    вторым кандидатом на выделение в отдельную таблицу является адрес из таблицы "customers"  
-       но комбинация значений  "address", "state" и " postcode" является уникальной  
-       потому в данном кейсе выделение адреса можно не проводить  
-     
-
-    Потому для приведения ко второй нормальной форме выделяем продукт из "transaction",  
-    после приведени ко второй нормальной форме данные не имеют транзистивных связей.
-    
-    Но несколько столбцов для "боевого проекта" стоит модернизировать на применение справочника - столбцы имеющие малое количество вариантов значений:
-    - в таблице продуктов:   
-       "brand"	"product_line"	"product_class"	"product_size"   
-    - в таблице клиентов  
-       столбцы: "job_industry_category",	"wealth_segment", "state", "country"  
-
-       столбец "gender" - на текущий момент содержит 6 вариантов значений - но перевод в справочник лучше осуществить после интервью с пользователем(причины возникновения таких данных)   
-       столбец "job_title" - тоже хороший кандидат на справочник, но достаточно большое число значений требуют дополнительного анализа для переходна на справочник   
-       "deceased_indicator"	и "owns_car" - это однозначные булевые поля т.к. значения Да/Нет  
-    - в таблице транзакций   
-        столбец: "order_status" -  похож на булевый, но лучше  для развития системы сделать справочник  
-    Так же введением справочников мы выполним кодирование полей, что будет полезно для целей последующего машинного обучения.
-
-
-    ## Отрисовка диаграммы
-    исходный код  диаграммы в файле [Vyatkin_Roman_hw1_shema_db.txt](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/Vyatkin_Roman_hw1_shema_db.txt)  
-    визуальное представление  схемы [Vyatkin_Roman_hw1.pdf](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/Vyatkin_Roman_hw1.pdf)
-
-    ## Создание таблиц и заполнение данных
-
-    SQL скрипт создания и заполния базы данных [Vyatkin_Roman_hw1_scripts.sql](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/Vyatkin_Roman_hw1_scripts.sql)
-    полноценное заполнение БД требует создания скрипта,  а обнаруженные аномалии с "product_id" фильтрации и кодирования/очистки данных
-    Потому для примера приведено заполнение по несколько строк в каждой таблице. 
-    Заполнение БД в PostgeSQL:  
-    *[Диаграмма](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/diagramm.JPG)  
-    *[Продукты](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/products.JPG)  
-    *[Клиенты](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/customers.JPG)  
-    *[Транзакции](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW1/transactions.JPG)
 
 
 
