@@ -66,17 +66,21 @@ select  t.customer_id
         ,t.transaction_date
 		from 	transaction_20240101 t 
 		
-		
+
 --Вывести имена, фамилии и профессии клиентов, между транзакциями которых был максимальный интервал (интервал вычисляется в днях) — (2 балла).
 drop view trans_interval;
 
-create view  trans_interval as  
+
+create view  trans_interval as 
 	select t.customer_id, c.first_name ,c.last_name, c.job_title
-		, last_value(t.transaction_date::date) over (partition by t.customer_id order by t.transaction_date::date range between current row and unbounded following) as last_t
-		,first_value (t.transaction_date::date)  over (partition by t.customer_id order by t.transaction_date::date) as first_t
-		,t.transaction_date
+		,(lead (t.transaction_date::date)  over (partition by t.customer_id order by t.transaction_date::date)) - t.transaction_date::date  as trans_lag 
 		from 	transaction_20240101 t 
 		join customer_20240101 c 
 			on t.customer_id = c.customer_id 
+			
+select   *  from  trans_interval where trans_lag  notnull order by trans_lag desc  limit 10;
 
-select   *, last_t::date -first_t::date as t_interv  from  trans_interval order by t_interv desc;
+
+
+
+
