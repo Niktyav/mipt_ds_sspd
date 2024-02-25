@@ -13,7 +13,7 @@
 
 # Решение
 
-Скрипт решения [Vyatkin_Roman_hw2.sql](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW3/Vyatkin_Roman_hw3.sql)  
+Скрипт решения [Vyatkin_Roman_hw3.sql](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW3/Vyatkin_Roman_hw3.sql)  
 * Вывести распределение (количество) клиентов по сферам деятельности, отсортировав результат по убыванию количества.  
 ![plot](https://github.com/Niktyav/mipt_ds_sspd/tree/main/HW3/ex1.JPG)  
 * Найти сумму транзакций за каждый месяц по сферам деятельности, отсортировав по месяцам и по сфере деятельности.   
