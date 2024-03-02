@@ -3,7 +3,7 @@
 select job_industry_category, count(*) as client_cnt 
 		from  customer_20240101 c 
 		group by job_industry_category 
-		order by client_cnt;
+		order by client_cnt desc;
 
 
 
@@ -21,7 +21,7 @@ select t.brand, count(*)
 		from 	transaction_20240101 t 
 		join customer_20240101 c 
 			on t.customer_id = c.customer_id 
-		where  t.online_order = 'True' and c.job_industry_category = 'IT'
+		where  t.online_order = 'True' and c.job_industry_category = 'IT' and t.order_status ='Approved'
 		group by t.brand;
 		
 	
@@ -43,21 +43,23 @@ select  t.customer_id,
 	
 	
 --Найти имена и фамилии клиентов с минимальной/максимальной суммой транзакций за весь период (сумма транзакций не может быть null). Напишите отдельные запросы для минимальной и максимальной суммы. — (2 балла)
-select t.customer_id, c.first_name ,c.last_name , sum(t.list_price) as tsum
-		from 	transaction_20240101 t 
-		join customer_20240101 c 
-			on t.customer_id = c.customer_id 
-		group by t.customer_id,c.first_name ,c.last_name 
-		order by tsum
-		limit 1
 		
-select t.customer_id, c.first_name ,c.last_name , sum(t.list_price) as tsum
-		from 	transaction_20240101 t 
-		join customer_20240101 c 
-			on t.customer_id = c.customer_id 
-		group by t.customer_id,c.first_name ,c.last_name 
-		order by tsum desc 
-		limit 1		
+drop view sum_tr;	
+
+create view  sum_tr as 
+	select c.customer_id, 
+	c.first_name ,
+	c.last_name  ,
+	coalesce (sum(t.list_price),0) as sum_pr
+	from customer_20240101 c
+	left join transaction_20240101 t on c.customer_id = t.customer_id 
+	group by c.customer_id,c.first_name , c.last_name   
+
+	
+select  * from  sum_tr where sum_pr in (select min(sum_pr) from sum_tr) 
+
+select  * from  sum_tr where sum_pr in (select max(sum_pr) from sum_tr) 
+
 
 --Вывести только самые первые транзакции клиентов. Решить с помощью оконных функций. — (1 балл)
 select  t.customer_id
@@ -78,7 +80,11 @@ create view  trans_interval as
 		join customer_20240101 c 
 			on t.customer_id = c.customer_id 
 			
-select   *  from  trans_interval where trans_lag  notnull order by trans_lag desc  limit 10;
+select   *  from  trans_interval where trans_lag in (select max(trans_lag) from trans_interval)
+
+
+
+
 
 
 
